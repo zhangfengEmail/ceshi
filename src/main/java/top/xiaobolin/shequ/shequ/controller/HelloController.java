@@ -20,4 +20,10 @@ public class HelloController {
         System.out.println("aaaaa");
         return "Hello";
     }
+    @GetMapping("/hello2")
+    public String hello2(@RequestParam(name="name") String name, ServletRequest ServletRequest){
+        ServletRequest.setAttribute("name",name);
+        System.out.println("aaaaa");
+        return "Hello";
+    }
 }
