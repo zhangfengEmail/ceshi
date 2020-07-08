@@ -1,9 +1,10 @@
 package top.xiaobolin.shequ.shequ.controller;
 
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import javax.servlet.ServletRequest;
 
 /**
  * @author：xiaobolin
@@ -14,8 +15,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 public class HelloController {
 
     @GetMapping("/hello")
-    public void hello(@RequestParam(name="name") String name, Model model){
-
-
+    public String hello(@RequestParam(name="name") String name, ServletRequest ServletRequest){
+        ServletRequest.setAttribute("name",name);
+        System.out.println("aaaaa");
+        return "Hello";
     }
 }
